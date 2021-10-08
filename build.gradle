@@ -1,0 +1,51 @@
+group 'application'
+version '0.1.0'
+
+buildscript {
+    ext.versions = [
+            springboot   : "2.1.5.RELEASE",
+            junitJupiter : '5.4.2',
+            junitPlatform: '1.4.2',
+            W3Cdom: '2.3.0-jaxb-1.0.6',
+            apiXmlProcessig: '1.4.5',
+            googleJsonSimple: '1.1.1'
+    ]
+
+    ext.pluginDependencies = [
+            springboot: "org.springframework.boot:spring-boot-gradle-plugin:${versions.springboot}"
+    ]
+
+    ext.allRepositories = {
+        jcenter()
+        mavenCentral()
+    }
+
+    repositories(allRepositories)
+
+    dependencies {
+        classpath pluginDependencies.springboot
+    }
+}
+
+repositories(allRepositories)
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web:${versions.springboot}"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${versions.junitJupiter}"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${versions.junitJupiter}"
+    testImplementation "org.junit.platform:junit-platform-engine:${versions.junitPlatform}"
+    testImplementation "org.junit.platform:junit-platform-commons:${versions.junitPlatform}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${versions.junitJupiter}"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:${versions.junitJupiter}"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher:${versions.junitPlatform}"
+    testRuntimeOnly "org.junit.platform:junit-platform-console:${versions.junitPlatform}"
+
+    implementation group: 'org.w3c', name: 'dom', version: "${versions.W3Cdom}"
+    implementation group: 'javax.xml.parsers', name: 'jaxp-api', version: "${versions.apiXmlProcessig}"
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: "${versions.googleJsonSimple}"
+}
+

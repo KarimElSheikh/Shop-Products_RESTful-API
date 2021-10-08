@@ -12,12 +12,12 @@ and exposes the information via a RESTful API.
 
 The API is designed in a way that allows the following use cases:
 
-1. List all products with their master data and without prices.
+1. List all products with their master data and without prices.  
 **Entrypoint:** `/products`
-2. Show a single product with master data and all of its available prices.
+2. Show a single product with master data and all of its available prices.  
 **Entrypoint:** `/products/{id}` with `{id}` corresponding to the attribute id for a given product in `products.xml`
-3. Show a single price for one product and a specific unit.
-**Entrypoint:** `/price?id={id}&unit={unit}` with `{id}` corresponding to the attribute `id` for a given Product in `products.xml` and `{unit}` corresponding to the `unit` for an entry corresponding to this product in `prices.json`. 
+3. Show a single price for one product and a specific unit.  
+**Entrypoint:** `/price?id={id}&unit={unit}` with `{id}` corresponding to the attribute `id` for a given Product in `products.xml` and `{unit}` corresponding to the `unit` for an entry corresponding to this product in `prices.json`.  
 **OR:** `/price_sku?sku={sku}&unit={unit}` with `{sku}` corresponding to the `id` for a given entry in `prices.json` and `{unit}` corresponding to the `unit` for the same entry.
 	 
 ## Information
